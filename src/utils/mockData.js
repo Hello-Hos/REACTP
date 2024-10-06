@@ -50,7 +50,7 @@ const resList = [
                 "Ice Cream",
                 "Desserts"
             ],
-            avgRating: 4.6,
+            avgRating: 3.6,
             veg: true,
             parentId: "12175",
             avgRatingString: "4.6",
@@ -89,7 +89,7 @@ const resList = [
                 "Italian",
                 "Desserts"
             ],
-            avgRating: 4.3,
+            avgRating: 3.3,
             parentId: "11216",
             avgRatingString: "4.3",
             totalRatingsString: "471",
@@ -166,7 +166,7 @@ const resList = [
             "North Indian",
             "Thalis"
           ],
-          avgRating: 4.3,
+          avgRating: 4.1,
           totalRatingsString: "470",
           sla: {
             deliveryTime: 25,
@@ -229,7 +229,7 @@ const resList = [
           cuisines: [
             "Desserts"
           ],
-          avgRating: 4.6,
+          avgRating: 2.6,
           totalRatingsString: "2.9K+",
           sla: {
             deliveryTime: 13,
@@ -261,7 +261,7 @@ const resList = [
             "Desserts",
             "Ice Cream"
           ],
-          avgRating: 4.6,
+          avgRating: 4.1,
           totalRatingsString: "1.5K+",
           sla: {
             deliveryTime: 16,
@@ -295,7 +295,7 @@ const resList = [
             "Beverages",
             "Snacks"
           ],
-          avgRating: 4.5,
+          avgRating: 3.5,
           totalRatingsString: "9.6K+",
           sla: {
             deliveryTime: 32,
@@ -328,7 +328,7 @@ const resList = [
             "Tandoor",
             "Mughlai"
           ],
-          avgRating: 4.3,
+          avgRating: 4.4,
           parentId: "19271",
           avgRatingString: "4.3",
           totalRatingsString: "62K+",
@@ -380,7 +380,7 @@ const resList = [
             "Seafood",
             "Pan-Asian"
           ],
-          avgRating: 4.3,
+          avgRating: 3.8,
           parentId: "19196",
           avgRatingString: "4.3",
           totalRatingsString: "5.2K+",
