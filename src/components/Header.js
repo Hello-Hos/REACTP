@@ -1,4 +1,6 @@
-import { LOGO_URL } from "../utils/constants";
+// import { LOGO_URL } from "../utils/constants";
+import logo from '../utils/logo.png'; // Adjust the path as needed
+
 
 const Header = () => {
     return (
@@ -6,7 +8,7 @@ const Header = () => {
             <div className='logo-container'>
                 <img 
                     className='logo' 
-                    src= {LOGO_URL}
+                    src= { logo}
                     alt='Food Delivery Logo'
                 />
             </div>
