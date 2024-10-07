@@ -18,6 +18,7 @@ const Body = () => {
         const json = await data.json();
         console.log(json);
 
+        //Conditional Rendering
         setListOfRestaurants(json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
         setIsLoading(false);
     };
@@ -25,17 +26,24 @@ const Body = () => {
     return (
         <div className="body">
             <div className="filter">
+                
                 <button 
                     className="filter-btn"
                     onClick={() => {
                         const filteredList = listOfRestaurants.filter(
-                            (res) => res.info.avgRating > 4
+                            (res) => parseFloat(res.info.avgRating) > 4.5
+                            
                         );
+                        // console.log("done");
                         setListOfRestaurants(filteredList);
                     }}
                 >
                     Top Rated Restaurants
                 </button>
+                <div className="search">
+                    <input type="text" placeholder="Search for restaurants..." className="search-input"/>
+                    <button className="search-btn">Search </button>
+                </div>
             </div>
             <div className="res-container">
                 {isLoading ? (

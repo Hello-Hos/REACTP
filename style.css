@@ -1,3 +1,4 @@
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -10,6 +11,7 @@ body {
     color: #333;
 }
 
+/* Header */
 .header {
     display: flex;
     justify-content: space-between;
@@ -29,12 +31,14 @@ body {
     display: flex;
     font-size: 18px;
     list-style-type: none;
+    margin-right: 40px;
 }
 
 .nav-items > ul > li {
-    margin: 0 15px;
+    margin: 0 20px;
     padding: 10px 15px;
     transition: background-color 0.3s;
+    position: relative;
 }
 
 .nav-items > ul > li:hover {
@@ -42,6 +46,111 @@ body {
     border-radius: 5px;
 }
 
+.nav-items > ul > li a {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 15px;
+    display: block;
+}
+
+/* Login Button */
+.login-btn {
+    width: 90px;
+    background-color: #ff4757;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #e84118;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Filter Section */
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 117px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: border 0.3s ease;
+    font-size: 16px;
+}
+
+.search-input:focus {
+    border: 1px solid #2980b9;
+    outline: none;
+}
+
+.search-btn{
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+/* Filter Button */
+.filter-btn {
+    padding: 10px 20px;
+    background-color: #196fa0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #0f73d1;
+    transform: scale(1.05);
+}
+
+.filter-btn:active {
+    background-color: #1e8449;
+    transform: scale(0.98);
+}
+
+/* Responsive Design for Filter */
+@media (max-width: 768px) {
+    .filter {
+        flex-direction: column;
+        margin: 10px 20px;
+    }
+
+    .search-input, .filter-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Restaurant Cards */
 .res-container {
     display: flex;
     flex-wrap: wrap;
@@ -84,42 +193,7 @@ body {
     object-fit: cover;
 }
 
-.search {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.search input {
-    padding: 10px;
-    width: 300px;
-    border: 1px solid #bdc3c7;
-    border-radius: 5px;
-    transition: border 0.3s;
-}
-
-.search input:focus {
-    border: 1px solid #2980b9;
-    outline: none;
-}
-
-.filter-btn {
-    padding: 10px 20px;
-    margin-top: 15px;
-    margin-left: 10px;
-    background-color: #2980b9;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.filter-btn:hover {
-    background-color: #21618c;
-}
-
-/* ShimmerCard.css */
+/* Shimmer Card */
 .shimmer-card {
     width: 100%;
     max-width: 300px;
@@ -138,19 +212,11 @@ body {
     animation: shimmer 5.5s infinite;
 }
 
-.shimmer-title {
+.shimmer-title, .shimmer-line {
     height: 20px;
     background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
     border-radius: 4px;
     margin: 10px 0;
-    animation: shimmer 5.5s infinite;
-}
-
-.shimmer-line {
-    height: 15px;
-    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
-    border-radius: 4px;
-    margin: 5px 0;
     animation: shimmer 5.5s infinite;
 }
 
@@ -162,4 +228,3 @@ body {
         background-position: 1000px 0;
     }
 }
-

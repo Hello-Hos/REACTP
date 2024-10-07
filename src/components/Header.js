@@ -1,14 +1,18 @@
 // import { LOGO_URL } from "../utils/constants";
-import logo from '../utils/logo.png'; // Adjust the path as needed
+import logo from '../utils/logo.png';
+import { useState } from 'react';
 
 
 const Header = () => {
+
+    const [btnNameReact, setBtnNameReact] = useState("Login");
+
     return (
         <div className='header'>
             <div className='logo-container'>
                 <img 
                     className='logo' 
-                    src= { logo}
+                    src= {logo}
                     alt='Food Delivery Logo'
                 />
             </div>
@@ -18,6 +22,14 @@ const Header = () => {
                     <li>About Us</li>
                     <li>Contact Us</li>
                     <li>Cart</li>
+                    <button className='login-btn'
+                    onClick={() => 
+                    btnNameReact === "Login" 
+                    ? setBtnNameReact("Logout") 
+                    :setBtnNameReact("Login")}
+                    >
+                    {btnNameReact}
+                    </button>
                 </ul>
             </div>
         </div>
