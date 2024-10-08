@@ -1,10 +1,12 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import ShimmerCard from "./ShimmerCard"; 
+import ShimmerCard from "./ShimmerCard";
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [SearchText, setSearchText] = useState(''); 
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]); 
 
     useEffect(() => {
         fetchData();
@@ -16,40 +18,52 @@ const Body = () => {
         );
 
         const json = await data.json();
-        console.log(json);
-
-        //Conditional Rendering
-        setListOfRestaurants(json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
+        const restaurants = json?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        setListOfRestaurants(restaurants);
+        setFilteredRestaurants(restaurants);
         setIsLoading(false);
+    };
+
+    const handleSearch = () => {
+         // if search box is empty then show all restaurants
+        if (SearchText === "") {
+            setFilteredRestaurants(listOfRestaurants);
+        } else {
+            const filteredList = listOfRestaurants.filter((res) => 
+                res.info.name.toLowerCase().includes(SearchText.toLowerCase()) 
+            );
+            setFilteredRestaurants(filteredList);
+        }
     };
 
     return (
         <div className="body">
             <div className="filter">
-                
                 <button 
                     className="filter-btn"
                     onClick={() => {
-                        const filteredList = listOfRestaurants.filter(
+                        const topRatedList = listOfRestaurants.filter(
                             (res) => parseFloat(res.info.avgRating) > 4.5
-                            
                         );
-                        // console.log("done");
-                        setListOfRestaurants(filteredList);
+                        setFilteredRestaurants(topRatedList);
                     }}
                 >
                     Top Rated Restaurants
                 </button>
                 <div className="search">
-                    <input type="text" placeholder="Search for restaurants..." className="search-input"/>
-                    <button className="search-btn">Search </button>
+                    <input type="text" placeholder="Search for restaurants..." className="search-input"value={SearchText} 
+                            onChange={(e) => {
+                            setSearchText(e.target.value);
+                            handleSearch(); 
+                        }}
+                    />
+                    <button className="search-btn"onClick={handleSearch}>Search</button>
                 </div>
             </div>
             <div className="res-container">
                 {isLoading ? (
-                    [...Array(10)].map((_, index) => <ShimmerCard key={index} />)
-                ) : (
-                    listOfRestaurants.map((resData) => (
+                    [...Array(10)].map((_, index) => <ShimmerCard key={index} />)) : 
+                    (filteredRestaurants.map((resData) => (
                         <RestaurantCard
                             key={resData.info.id}
                             resData={resData}

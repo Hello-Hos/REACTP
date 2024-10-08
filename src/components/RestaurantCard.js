@@ -13,7 +13,7 @@ const RestaurantCard = (props) => {
             <h4>{resData.info.cuisines?.join(", ") || 'Cuisines Not Available'}</h4>
             <h4>{resData.info.avgRating || 'Rating Not Available'}</h4>
             <h4>{resData.info.costForTwo || 'Cost Information Not Available'}</h4>
-            <h4>{resData.info.sla.deliveryTime || 'Delivery Time Not Available'} minutes</h4>
+            <h4>{resData.info.sla.deliveryTime || 'Delivery Time Not Available'}:00 minutes</h4>
         </div>
     );
 };

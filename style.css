@@ -9,6 +9,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
     color: #333;
+    margin-top: 150px;
 }
 
 /* Header */
@@ -17,13 +18,17 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #34495e;
-    color: #ecf0f1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #ebc4bf;
+    box-shadow: 0 12px 5px rgba(0, 0, 0, 0.1);
+    position: fixed; 
+    top: 0;          
+    left: 0;         
+    right: 0;        
+    z-index: 1000;  
 }
 
 .logo {
-    width: 100px;
+    width: 70px;
     margin-left: 40px;
 }
 
@@ -42,7 +47,7 @@ body {
 }
 
 .nav-items > ul > li:hover {
-    background-color: rgba(236, 240, 241, 0.2);
+    background-color: rgba(255, 255, 255, 0.3);
     border-radius: 5px;
 }
 
@@ -56,8 +61,8 @@ body {
 /* Login Button */
 .login-btn {
     width: 90px;
-    background-color: #ff4757;
-    color: #ffffff;
+    background-color: #d8b867;
+    color: #333333;
     border: none;
     border-radius: 30px;
     cursor: pointer;
@@ -70,7 +75,7 @@ body {
 }
 
 .login-btn:hover {
-    background-color: #e84118;
+    background-color: #FFC300;
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -80,7 +85,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 117px;
+    margin: 100px 117px 20px; 
     padding: 10px;
     background-color: #ffffff;
     border-radius: 8px;
@@ -102,7 +107,7 @@ body {
     outline: none;
 }
 
-.search-btn{
+.search-btn {
     padding: 10px 20px;
     background-color: #2980b9;
     color: white;
@@ -137,19 +142,6 @@ body {
     transform: scale(0.98);
 }
 
-/* Responsive Design for Filter */
-@media (max-width: 768px) {
-    .filter {
-        flex-direction: column;
-        margin: 10px 20px;
-    }
-
-    .search-input, .filter-btn {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-
 /* Restaurant Cards */
 .res-container {
     display: flex;
@@ -157,6 +149,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     padding: 20px;
+    margin-top: 20px; 
 }
 
 .res-card {
@@ -179,7 +172,8 @@ body {
     cursor: pointer;
 }
 
-.res-card h3, .res-card h4 {
+.res-card h3,
+.res-card h4 {
     margin: 5px 0;
     color: #273641;
     white-space: nowrap;
@@ -212,7 +206,8 @@ body {
     animation: shimmer 5.5s infinite;
 }
 
-.shimmer-title, .shimmer-line {
+.shimmer-title,
+.shimmer-line {
     height: 20px;
     background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
     border-radius: 4px;
