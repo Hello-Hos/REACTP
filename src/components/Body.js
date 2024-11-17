@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerCard from "./ShimmerCard";
+import { Link } from "react-router-dom";
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -51,23 +52,34 @@ const Body = () => {
                     Top Rated Restaurants
                 </button>
                 <div className="search">
-                    <input type="text" placeholder="Search for restaurants..." className="search-input"value={SearchText} 
-                            onChange={(e) => {
+                    <input 
+                        type="text" 
+                        placeholder="Search for restaurants..." 
+                        className="search-input" 
+                        value={SearchText} 
+                        onChange={(e) => {
                             setSearchText(e.target.value);
                             handleSearch(); 
                         }}
                     />
-                    <button className="search-btn"onClick={handleSearch}>Search</button>
+                    <button className="search-btn" onClick={handleSearch}>Search</button>
                 </div>
             </div>
+
             <div className="res-container">
                 {isLoading ? (
-                    [...Array(10)].map((_, index) => <ShimmerCard key={index} />)) : 
-                    (filteredRestaurants.map((resData) => (
-                        <RestaurantCard
-                            key={resData.info.id}
-                            resData={resData}
-                        />
+                    [...Array(10)].map((_, index) => <ShimmerCard key={index} />)
+                ) : (
+                    filteredRestaurants.map((resData) => (
+                        
+                        <Link 
+                        key={resData.info.id} 
+                            to={"/restaurants/" + resData.info.id} 
+                            
+                            style={{ textDecoration: 'none', color: 'inherit' }} 
+                        >
+                            <RestaurantCard resData={resData} />
+                        </Link>
                     ))
                 )}
             </div>
