@@ -1,30 +1,17 @@
-import { useEffect, useState } from 'react';
 import React from 'react';
 import ShimmerCard from './ShimmerCard';
 import { useParams } from "react-router-dom";
-import { MENU_API } from '../utils/constants';
+import useRestaurantMenu from '../utils/useRestaurantMenu';
 
 
 // Exporting the CDN_URL constant
 export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 const RestaurantMenu = () => {
-const [resInfo, setResInfo] = useState(null);
 
 const {resId} = useParams();
 
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API+resId);
-    const json = await data.json();
-
-
-    setResInfo(json?.data);
-  };
+const resInfo=useRestaurantMenu(resId);
 
   if(resInfo==null) return <ShimmerCard/>;
 
