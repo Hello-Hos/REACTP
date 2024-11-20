@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Error.css'; // Import external CSS for additional styles
+import '../css/Error.css';
 
 const Error = ({ errorCode = "404", errorName = "Page Not Found" }) => {
     const navigate = useNavigate();
