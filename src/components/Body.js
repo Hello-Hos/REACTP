@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import ShimmerCard from "./ShimmerCard";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -24,6 +25,15 @@ const Body = () => {
         setFilteredRestaurants(restaurants);
         setIsLoading(false);
     };
+
+    const onlineStatus = useOnlineStatus();
+
+    if (onlineStatus === false) 
+    return (
+    <h1>
+        You are Currently offline! Check your internet status;
+    </h1>
+    );
 
     const handleSearch = () => {
          // if search box is empty then show all restaurants
