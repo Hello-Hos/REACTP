@@ -12,36 +12,56 @@ const RestaurantMenu = () => {
 
   if (!resInfo) return <ShimmerCard />;
 
-  const { name, costForTwoMessage, cuisines, avgRating } = 
+  const { name, costForTwoMessage, cuisines, avgRating } =
     resInfo?.cards[2]?.card?.card?.info || {};
 
-  const { itemCards = [] } = 
+  const { itemCards = [] } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || {};
-  
-  console.log(itemCards);
 
   return (
-    <div className="menu">
-      <h1>{name}</h1>
-      <h3>{costForTwoMessage}</h3>
-      <h3>{cuisines?.join(", ")}</h3>
-      <h3>{avgRating}</h3>
-      <h2>Menu</h2>
+  <div className="menu p-6 bg-gray-50 min-h-screen mt-20">
+    {/* Restaurant Info */}
+    <div className="restaurant-info flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg mb-8">
+      <h1 className="text-3xl font-bold text-gray-900 mb-2">{name || "Restaurant Name"}</h1>
+      <p className="text-gray-700 text-lg">{costForTwoMessage || "Cost details not available"}</p>
+      <p className="text-gray-700 text-lg">{cuisines?.join(", ") || "Cuisines not available"}</p>
+      <p className="text-yellow-500 font-semibold text-lg">
+        Rating: {avgRating || "Not available"}
+      </p>
+    </div>
 
-      <ul>
+    {/* Menu Section */}
+    <div className="menu-section bg-white p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Menu</h2>
+      <ul className="menu-items divide-y divide-gray-200">
         {itemCards.length > 0 ? (
           itemCards.map(item => (
-            <li key={item.card.info.id}>
-              {item.card.info.name} - ₹
-              {(item.card.info.defaultPrice || item.card.info.price) / 100 || "N/A"}
+            <li
+              key={item.card.info.id}
+              className="py-4 flex justify-between hover:cursor-pointer my-4 items-center hover:bg-gray-100 rounded-lg px-3 transition duration-200"
+              style={{
+                backgroundImage: "url('https://www.transparenttextures.com/patterns/p4.png')",
+                backgroundRepeat: "repeat",  // Ensures the pattern repeats
+              }}
+            >
+              <span className="text-gray-800 text-lg font-medium">
+                {item.card.info.name || "Item name not available"}
+              </span>
+              <span className="text-gray-600 text-lg">
+                ₹{(item.card.info.defaultPrice || item.card.info.price) / 100 || "N/A"}
+              </span>
             </li>
           ))
         ) : (
-          <li>No items available</li>
+          <li className="py-3 text-center text-gray-500 text-lg">
+            No items available
+          </li>
         )}
       </ul>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default RestaurantMenu;
