@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <div className="min-h-screen bg-gradient-to-r from-blue-500 to-green-400 flex flex-col items-center justify-center py-8 px-4 mt-12">
+        <div className="min-h-screen bg-gradient-to-r from-blue-500 to-green-400 flex flex-col items-center justify-center py-8 px-4 mt-16">
             <div className="max-w-3xl text-center bg-white p-8 rounded-lg shadow-xl mt-8">
                 <h1 className="text-5xl font-extrabold text-gray-800 mb-6 text-[#FF6600]">Big Bite: Your Food, Your Way</h1>
                 <p className="text-lg text-gray-700 mb-6">

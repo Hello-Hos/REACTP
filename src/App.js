@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
 import Contact from './components/Contact';
 import Error from "./components/Error";
 import RestaurantMenu from './components/RestaurantMenu';
-import { createBrowserRouter, RouterProvider ,Outlet} from 'react-router-dom';
+import Footer from './components/Footer'; // Import Footer
 
 const AppLayout = () => {
     return (
-        <div className="app">
+        <div className="app min-h-screen flex flex-col">
             <Header />
-            <Outlet/>
+            <div className="main-content flex-grow">
+                <Outlet />
+            </div>
+            <Footer />
         </div>
     );
 };
@@ -32,25 +36,16 @@ const appRouter = createBrowserRouter([
                 element: <About />,    
             },
             {
-                path:"/contact",
-                element: <Contact/>,
+                path: "/contact",
+                element: <Contact />,
             },
             {
                 path: "/restaurants/:resId",
                 element: <RestaurantMenu />,
             },
         ],
-        errorElement: <Error/> ,
-
+        errorElement: <Error />,
     },
-    // {
-    //     path: "/about",
-    //     element: <About />,    
-    // },
-    // {
-    //     path:"/contact",
-    //     element: <Contact/>,
-    // },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

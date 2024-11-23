@@ -21,7 +21,6 @@ const Error = ({ errorCode = "404", errorName = "Page Not Found" }) => {
             <h1 className="error-title">{errorCode} - {errorName}</h1>
             <p className="error-message">
                 Goli beta, masti nahi! 😆<br />
-                Yeh page toh fantasy hai! 😜<br />
                 Wapas ghar jao, kuch seekho! 🏠
             </p>
             <button className="error-button" onClick={handleGoBack}>
