@@ -50,7 +50,7 @@ const Body = () => {
     return (
         <div className="p-20">
             {/* Filter Section */}
-            <div className="flex justify-between items-center mx-6 mt-10 p-4 bg-white rounded-lg shadow-md">
+            <div className="flex justify-between items-center mx-6 mt-[80px] p-4 bg-white rounded-lg shadow-md">
                 <button 
                     className="px-4 py-2 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105"
                     onClick={() => {

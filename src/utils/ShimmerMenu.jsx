@@ -2,7 +2,7 @@ import React from "react";
 
 const ShimmerCard = () => {
   return (
-    <div className="p-6 bg-gray-50 min-h-screen mt-20">
+    <div className="p-6 bg-gray-50 min-h-screen mt-28">
       {/* Restaurant Info Shimmer */}
       <div className="restaurant-info flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg mb-8 relative overflow-hidden">
         <div className="w-48 h-6 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 rounded mb-4 animate-pulse"></div> {/* Restaurant Name */}

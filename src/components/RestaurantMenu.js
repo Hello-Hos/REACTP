@@ -21,7 +21,7 @@ const RestaurantMenu = () => {
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || {};
 
   return (
-    <div className="menu p-6 bg-gray-50 min-h-screen mt-20">
+    <div className="menu p-6 bg-gray-50 min-h-screen mt-28">
       {/* Restaurant Info */}
       <div className="restaurant-info flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
