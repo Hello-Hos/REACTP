@@ -8,7 +8,7 @@ import Contact from './components/Contact';
 import Error from "./components/Error";
 import RestaurantMenu from './components/RestaurantMenu';
 import Footer from './components/Footer';
-import logo from "./utils/logo.png"; // Import the favicon
+import logo from "./utils/logo.png";   //favicon
 
 // AppLayout component
 const AppLayout = () => {
@@ -59,6 +59,6 @@ const appRouter = createBrowserRouter([
     },
 ]);
 
-// Render the app
+// Rendering the app
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
