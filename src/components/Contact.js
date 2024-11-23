@@ -10,7 +10,7 @@ const Contact = () => {
                         We're always happy to hear from our customers. Whether you have a question, feedback, or need assistance with an order, our team is here to help.
                     </p>
                     <div className="mb-6">
-                        <p className="text-xl text-gray-700 font-semibold">Customer Support: <span className="text-[#FF6600]">+91-9027280351</span></p>
+                        <p className="text-xl text-gray-700 font-semibold">Customer Support: <span className="text-[#FF6600]">9027280351</span></p>
                         <p className="text-xl text-gray-700 font-semibold mt-2">Email Us: <span className="text-[#FF6600]">bigbite@company.in</span></p>
                     </div>
                     <div className="bg-[#FF6600] p-6 rounded-lg shadow-lg mb-6">
@@ -33,7 +33,7 @@ const Contact = () => {
                             <input
                                 type="text"
                                 id="name"
-                                className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6600] transition-all duration-300 hover:bg-gray-50"
+                                className="px-4 py-3 border border-[#FF6600] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6600] transition-all duration-300 hover:bg-gray-50"
                                 placeholder="Enter your name"
                             />
                         </div>
@@ -42,7 +42,7 @@ const Contact = () => {
                             <input
                                 type="email"
                                 id="email"
-                                className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6600] transition-all duration-300 hover:bg-gray-50"
+                                className="px-4 py-3 border border-[#FF6600] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6600] transition-all duration-300 hover:bg-gray-50"
                                 placeholder="Enter your email"
                             />
                         </div>
@@ -50,7 +50,7 @@ const Contact = () => {
                             <label className="text-gray-700" htmlFor="message">Your Message</label>
                             <textarea
                                 id="message"
-                                className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6600] transition-all duration-300 hover:bg-gray-50"
+                                className="px-4 py-3 border border-[#FF6600] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6600] transition-all duration-300 hover:bg-gray-50"
                                 placeholder="Write your message here"
                                 rows="4"
                             ></textarea>
