@@ -12,7 +12,7 @@ const Header = () => {
             {/* Logo Container */}
             <div className="flex-shrink-0 ml-10">
                 <img
-                    className="w-16"
+                    className="w-20"
                     src={logo}
                     alt="Food Delivery Logo"
                 />
