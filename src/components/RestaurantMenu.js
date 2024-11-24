@@ -47,7 +47,7 @@ const RestaurantMenu = () => {
       {/* Categories Accordion */}
       <div className="categories space-y-6">
         {categories.map((category) => (
-          <RestaurantCategory key={category.card?.card?.title} data={category?.card?.card} />
+          <RestaurantCategory key={category.card?.card?.title} data={category?.card?.card}/>
         ))}
       </div>
     </div>
