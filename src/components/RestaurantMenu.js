@@ -1,8 +1,8 @@
 import React from "react";
-// import ShimmerCard from "./ShimmerCard";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import ShimmerMenu from "../utils/ShimmerMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 // Exporting the CDN_URL constant
 export const CDN_URL =
@@ -19,6 +19,12 @@ const RestaurantMenu = () => {
 
   const { itemCards = [] } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || {};
+
+  const categories = 
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => 
+      c.card?.["card"]?.["@type"] ===
+      'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
+    );
 
   return (
     <div className="menu p-6 bg-gray-50 min-h-screen mt-28">
@@ -38,35 +44,11 @@ const RestaurantMenu = () => {
         </p>
       </div>
 
-      {/* Menu Section */}
-      <div className="menu-section bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">Menu</h2>
-        <ul className="menu-items divide-y divide-gray-200">
-          {itemCards.length > 0 ? (
-            itemCards.map((item) => (
-              <li
-                key={item.card.info.id}
-                className="py-4 flex justify-between items-center my-4 px-3 hover:cursor-pointer hover:bg-gray-100 rounded-lg transition duration-200"
-                style={{
-                  backgroundImage:
-                    "url('https://www.transparenttextures.com/patterns/p4.png')",
-                  backgroundRepeat: "repeat", // Ensures the pattern repeats
-                }}
-              >
-                <span className="text-gray-800 text-lg font-medium">
-                  {item.card.info.name || "Item name not available"}
-                </span>
-                <span className="text-gray-600 text-lg">
-                  ₹{(item.card.info.defaultPrice || item.card.info.price) / 100 || "N/A"}
-                </span>
-              </li>
-            ))
-          ) : (
-            <li className="py-3 text-center text-gray-500 text-lg">
-              No items available
-            </li>
-          )}
-        </ul>
+      {/* Categories Accordion */}
+      <div className="categories space-y-6">
+        {categories.map((category) => (
+          <RestaurantCategory key={category.card?.card?.title} data={category?.card?.card} />
+        ))}
       </div>
     </div>
   );
