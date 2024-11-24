@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import ShimmerMenu from "../utils/ShimmerMenu";
@@ -11,19 +11,17 @@ export const CDN_URL =
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
+  const [showIndex, setShowIndex] = useState(0);
 
   if (!resInfo) return <ShimmerMenu />;
 
   const { name, costForTwoMessage, cuisines, avgRating } =
     resInfo?.cards[2]?.card?.card?.info || {};
 
-  const { itemCards = [] } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || {};
-
   const categories = 
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c => 
       c.card?.["card"]?.["@type"] ===
-      'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
   return (
@@ -46,8 +44,14 @@ const RestaurantMenu = () => {
 
       {/* Categories Accordion */}
       <div className="categories space-y-6">
-        {categories.map((category) => (
-          <RestaurantCategory key={category.card?.card?.title} data={category?.card?.card}/>
+        {categories.map((category, index) => (
+          <RestaurantCategory
+            key={category.card?.card?.title || index} 
+            data={category?.card?.card}
+            showItems={index === showIndex}
+            setShowIndex={() => setShowIndex
+              (index === showIndex ? null : index)} 
+          />
         ))}
       </div>
     </div>

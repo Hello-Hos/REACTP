@@ -1,12 +1,10 @@
-import { useState } from "react";
+import React from "react";
 import ItemList from "./itemList";
 
-const RestaurantCategory = ({ data }) => {
-  const [showItems, setShowItems] = useState(false);
-
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   const handleClick = (e) => {
-    e.stopPropagation();
-    setShowItems(!showItems);
+    e.stopPropagation(); // Prevent event bubbling
+    setShowIndex(); // Trigger toggle
   };
 
   return (
@@ -17,7 +15,9 @@ const RestaurantCategory = ({ data }) => {
         role="button"
         aria-expanded={showItems}
       >
-        <h1 className="text-xl font-semibold text-gray-800">{data.title} ({data.itemCards.length})</h1>
+        <h1 className="text-xl font-semibold text-gray-800">
+          {data.title} ({data.itemCards.length})
+        </h1>
         <span className="text-lg text-gray-600">
           {showItems ? "▲" : "▼"}
         </span>
