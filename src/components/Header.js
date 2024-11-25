@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import { useSelector } from 'react-redux';
-import { FaShoppingCart } from 'react-icons/fa';
+// import { FaShoppingCart } from 'react-icons/fa';
+import { GiFoodTruck } from "react-icons/gi";
 
 const Header = () => {
     const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -50,7 +51,8 @@ const Header = () => {
                     to="/cart" 
                     className="relative z-10 flex items-center px-6 py-2 text-gray-800 border-2 border-[#F97316] rounded-full group mr-4 transition-all duration-300 ease-in-out hover:bg-[#F97316] hover:text-gray-100"  
                 >
-                    <FaShoppingCart size={24} className="mr-2 group-hover:text-white " />
+                    {/* <FaShoppingCart size={24} className="mr-2 group-hover:text-white " /> */}
+                    <GiFoodTruck size={24} className="mr-2 group-hover:text-white " />
                     Cart ({cartItems.length})
                     <div className="absolute top-0 left-0 right-0 bottom-0 bg-[#F97316] opacity-0 group-hover:opacity-0 transition-all ease-in-out rounded-full"></div>
                 </Link>

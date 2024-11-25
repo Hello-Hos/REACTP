@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
+import { GiShoppingBag } from "react-icons/gi";
 
 const ViewCartPopup = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -39,7 +40,8 @@ const ViewCartPopup = () => {
     <>
       {cartItems.length > 0 && (
         <div
-          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[50%] bg-[#3ebe6d] text-white flex justify-between items-center p-4 px-6 rounded-full shadow-lg z-50"
+          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[50%] bg-[#3ebe6d]
+           text-white flex justify-between items-center p-4 px-6 rounded-xl shadow-lg z-50"
           style={{ transition: "all 0.5s ease-in-out" }}
         >
           {/* Cart Summary */}
@@ -52,20 +54,26 @@ const ViewCartPopup = () => {
           <div className="flex gap-3">
             {/* View Cart Button */}
             <button
-              className="px-4 sm:px-6 py-2 border-2 border-orange-500 bg-white text-orange-500 font-semibold rounded-full shadow-md transition-all transform hover:bg-orange-500 hover:text-white hover:scale-105"
+              className="px-4 sm:px-6 py-2 border-2 border-orange-500 bg-white
+               text-black font-semibold rounded-full shadow-md transition-all transform
+                hover:bg-orange-500 hover:text-white hover:scale-105 flex items-center gap-2"
               onClick={handleNavigateToCart}
             >
-              🛒 View Cart
-            </button>
+                  <GiShoppingBag className="text-lg sm:text-xl" />
+                  <span>View Cart</span>
+                </button>
+
 
             {/* Clear Cart Button */}
             <button
-              className="p-2 sm:px-4 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-md transition-all transform hover:scale-105"
-              onClick={() => setShowConfirmation(true)}
-              aria-label="Clear Cart"
-            >
-              <FaTimes className="text-lg sm:text-xl" />
-            </button>
+            className="w-8 h-8 p-1 bg-white text-black hover:bg-red-600 hover:text-white rounded-full 
+            shadow-md transition-all transform hover:scale-105 flex items-center justify-center mt-[6px]"
+            onClick={() => setShowConfirmation(true)}
+            aria-label="Clear Cart"
+          >
+            <FaTimes className="text-xs sm:text-sm" /> 
+          </button>
+
           </div>
         </div>
       )}
@@ -80,14 +88,16 @@ const ViewCartPopup = () => {
             <div className="flex justify-center gap-4">
               {/* Yes Button */}
               <button
-                className="px-6 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold shadow-md transition-all transform hover:scale-105"
+                className="px-6 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg 
+                font-semibold shadow-md transition-all transform hover:scale-105"
                 onClick={handleClearCart}
               >
                 Yes
               </button>
               {/* No Button */}
               <button
-                className="px-6 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-lg font-semibold shadow-md transition-all transform hover:scale-105"
+                className="px-6 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 
+                rounded-lg font-semibold shadow-md transition-all transform hover:scale-105"
                 onClick={() => setShowConfirmation(false)}
               >
                 No

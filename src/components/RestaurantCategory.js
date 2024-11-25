@@ -10,7 +10,8 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   return (
     <div className="mx-auto my-8 w-10/12 lg:w-6/12">
       <div
-        className="p-3 bg-white border-2 border-[#FF7F32] shadow-lg rounded-lg flex justify-between items-center cursor-pointer hover:shadow-xl transition-all focus:outline-none"
+        className="p-3 bg-white border-2 border-[#FF7F32] shadow-lg rounded-lg 
+        flex justify-between items-center cursor-pointer hover:shadow-xl transition-all focus:outline-none"
         onClick={handleClick}
         role="button"
         aria-expanded={showItems}

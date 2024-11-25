@@ -31,7 +31,7 @@ const App = () => {
         {/* Include ViewCartPopup globally inside the main layout */}
         <ViewCartPopup />
         <div className="main-content flex-grow">
-          <Outlet />  {/* Render the child routes here */}
+          <Outlet />  
         </div>
         <Footer />
       </div>
@@ -45,11 +45,20 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <App />, 
     children: [
-      { path: "/", element: <Body /> },
-      { path: "/about", element: <About /> },
-      { path: "/contact", element: <Contact /> },
-      { path: "/restaurants/:resId", element: <RestaurantMenu /> },
-      { path: "/cart", element: <Cart /> },
+      { path: "/", 
+      element: <Body /> },
+
+      { path: "/about", 
+      element: <About /> },
+
+      { path: "/contact", 
+      element: <Contact /> },
+
+      { path: "/restaurants/:resId", 
+      element: <RestaurantMenu /> },
+      
+      { path: "/cart", 
+      element: <Cart /> },
     ],
     errorElement: <Error />,
   },
