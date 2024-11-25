@@ -3,12 +3,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import { useSelector } from 'react-redux';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Header = () => {
     const [btnNameReact, setBtnNameReact] = useState("Login");
     const onlineStatus = useOnlineStatus();
 
-    //subscribing to the store using the selector
+    // Subscribing to the store using the selector
     const cartItems = useSelector((store) => store.cart.items);
     console.log(cartItems);
 
@@ -44,13 +45,15 @@ const Header = () => {
                         </Link>
                         <div className="absolute top-0 left-0 right-0 bottom-0 bg-[#F97316] opacity-0 group-hover:opacity-50 transition-all rounded-full"></div>
                     </li>
-                    <li className="relative group">
-                        <Link to="/cart" className="relative z-10 px-6 py-2 transition-all duration-300 ease-in-out text-gray-800 hover:text-black hover:rounded-full">
-                        Cart-{cartItems.length}
-                        </Link>
-                        <div className="absolute top-0 left-0 right-0 bottom-0 bg-[#F97316] opacity-0 group-hover:opacity-50 transition-all rounded-full"></div>
-                    </li>
                 </ul>
+                <Link 
+                    to="/cart" 
+                    className="relative z-10 flex items-center px-6 py-2 text-gray-800 border-2 border-[#F97316] rounded-full group mr-4 transition-all duration-300 ease-in-out hover:bg-[#F97316] hover:text-gray-100"  
+                >
+                    <FaShoppingCart size={24} className="mr-2 group-hover:text-white " />
+                    Cart ({cartItems.length})
+                    <div className="absolute top-0 left-0 right-0 bottom-0 bg-[#F97316] opacity-0 group-hover:opacity-0 transition-all ease-in-out rounded-full"></div>
+                </Link>
 
                 {/* Login Button */}
                 <button
