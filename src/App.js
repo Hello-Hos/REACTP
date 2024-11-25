@@ -8,7 +8,10 @@ import Contact from './components/Contact';
 import Error from "./components/Error";
 import RestaurantMenu from './components/RestaurantMenu';
 import Footer from './components/Footer';
-import logo from "./utils/logo.png";   //favicon
+import logo from "./utils/logo.png"; 
+import { Provider} from "react-redux";
+import appStore from './utils/appStore';
+import Cart from './components/Cart';
 
 // AppLayout component
 const AppLayout = () => {
@@ -22,6 +25,7 @@ const AppLayout = () => {
     }, []);
 
     return (
+            <Provider store={appStore}>
         <div className="app min-h-screen flex flex-col">
             <Header />
             <div className="main-content flex-grow">
@@ -29,6 +33,7 @@ const AppLayout = () => {
             </div>
             <Footer />
         </div>
+        </Provider>
     );
 };
 
@@ -54,6 +59,10 @@ const appRouter = createBrowserRouter([
                 path: "/restaurants/:resId",
                 element: <RestaurantMenu />,
             },
+            {
+                path: "/cart",
+                element: <Cart/>,
+            }
         ],
         errorElement: <Error />,
     },

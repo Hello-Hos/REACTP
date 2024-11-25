@@ -2,10 +2,15 @@ import logo from '../utils/logo.png';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../utils/useOnlineStatus';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
     const [btnNameReact, setBtnNameReact] = useState("Login");
     const onlineStatus = useOnlineStatus();
+
+    //subscribing to the store using the selector
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
 
     return (
         <div className="flex justify-between items-center bg-white shadow-xl px-8 py-8 fixed top-0 left-0 right-0 z-50 rounded-3xl border border-[#F97316] border-2">
@@ -41,7 +46,7 @@ const Header = () => {
                     </li>
                     <li className="relative group">
                         <Link to="/cart" className="relative z-10 px-6 py-2 transition-all duration-300 ease-in-out text-gray-800 hover:text-black hover:rounded-full">
-                            Cart
+                        Cart-{cartItems.length}
                         </Link>
                         <div className="absolute top-0 left-0 right-0 bottom-0 bg-[#F97316] opacity-0 group-hover:opacity-50 transition-all rounded-full"></div>
                     </li>
