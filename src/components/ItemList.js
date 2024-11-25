@@ -1,13 +1,16 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
+import { addItem, removeItem } from "../utils/cartSlice";
 import { ITEM_IMG_URL } from "../utils/constants";
-import { addItem } from "../utils/cartSlice";
 
-const ItemList = ({ items }) => {
+const ItemList = ({ items, isCart }) => {
   const dispatch = useDispatch();
 
   const handleAddItem = (item) => {
-    // Dispatching an action
     dispatch(addItem(item));
+  };
+
+  const handleRemoveItem = (id) => {
+    dispatch(removeItem(id));
   };
 
   return (
@@ -18,10 +21,10 @@ const ItemList = ({ items }) => {
         </div>
       ) : (
         items.map((item) => {
-          // Check if card and info are present
           const cardInfo = item.card?.info;
-          if (!cardInfo) {
-            return null; 
+
+          if (!cardInfo || !cardInfo.id) {
+            return null;
           }
 
           return (
@@ -35,7 +38,6 @@ const ItemList = ({ items }) => {
                     {cardInfo.name} - ₹
                     {cardInfo.price / 100 || cardInfo.defaultPrice / 100}
                   </span>
-                  <span className="text-lg text-gray-600"></span>
                 </div>
                 <p className="text-sm mt-3 text-gray-600 overflow-hidden text-ellipsis">
                   {cardInfo.description}
@@ -50,13 +52,22 @@ const ItemList = ({ items }) => {
                       alt={cardInfo.name}
                       className="w-full h-full object-cover rounded-lg shadow-md"
                     />
-                    <button
-                      className="absolute bottom-[-12px] left-1/2 transform -translate-x-1/2 bg-[#FF6F00] text-white hover:bg-[#FF8F00] rounded-md px-4 py-2 font-semibold text-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FF6F00] shadow-md hover:shadow-lg"
-                      onClick={() => handleAddItem(item)}
-                    >
-                      <span className="mr-2">Add</span>
-                      <span>+</span>
-                    </button>
+                    {!isCart ? (
+                      <button
+                        className="absolute bottom-[-12px] left-1/2 transform -translate-x-1/2 bg-[#FF6F00] text-white hover:bg-[#FF8F00] rounded-md px-4 py-2 font-semibold text-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#FF6F00] shadow-md hover:shadow-lg"
+                        onClick={() => handleAddItem(item)}
+                      >
+                        <span className="mr-2">Add</span>
+                        <span>+</span>
+                      </button>
+                    ) : (
+                      <button
+                        className="absolute bottom-[-12px] right-[-10px] bg-red-500 text-white hover:bg-red-600 rounded-full p-2 transition-all duration-200 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-500 shadow-md hover:shadow-lg"
+                        onClick={() => handleRemoveItem(cardInfo.id)}
+                      >
+                        X
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
