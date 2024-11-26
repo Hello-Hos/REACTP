@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 import ItemList from "./ItemList";
-import { MdShoppingBag } from "react-icons/md"; 
+// import { MdShoppingBag } from "react-icons/md"; 
+import emptyCartImage from '../utils/emptycart.png';
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -40,9 +41,13 @@ const Cart = () => {
             <span className="font-bold text-xl">Your cart is empty.</span>
             <br />
             Start adding some delicious items!
-
+            <img
+            src={emptyCartImage}
+            alt="Empty Cart"
+            className="mt-20 w-80 h-100 object-contain rounded-3xl"
+            />
             {/* Empty Bag Icon */}
-            <MdShoppingBag className="mt-6 text-gray-400" size={120} />
+            {/* <MdShoppingBag className="mt-6 text-gray-400" size={120} /> */}
           </div>
         ) : (
           <div className="w-2/3 flex flex-col space-y-6">
