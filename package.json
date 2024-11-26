@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
+    "@swc/helpers": "^0.5.15",
     "framer-motion": "^11.11.17",
     "i": "^0.3.7",
     "react": "^18.3.1",
