@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../utils/cartSlice";
 import ItemList from "./ItemList";
 // import { MdShoppingBag } from "react-icons/md"; 
-import emptyCartImage from '../utils/emptycart.png';
+import emptyCartImage from '../utils/emptycart1.png';
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -33,7 +33,7 @@ const Cart = () => {
   const { itemTotal, deliveryFee, discount, platformFee, gst, total } = calculateTotals();
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-start mt-36">
+    <div className="min-h-screen bg-gradient-to-r from-white to-indigo-50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-start mt-36">
       <div className="w-full max-w-7xl flex items-start gap-12">
         {/* Cart Items */}
         {cartItems.length === 0 ? (
@@ -44,7 +44,7 @@ const Cart = () => {
             <img
             src={emptyCartImage}
             alt="Empty Cart"
-            className="mt-20 w-80 h-100 object-contain rounded-3xl"
+            className="mt-12 w-80 h-100 object-contain rounded-3xl"
             />
             {/* Empty Bag Icon */}
             {/* <MdShoppingBag className="mt-6 text-gray-400" size={120} /> */}
